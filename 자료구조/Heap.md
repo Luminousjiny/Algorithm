@@ -5,10 +5,10 @@
 > 2. 느슨한 정렬(반정렬) 유지
 > 3. 중복 값 허용
 > 4. 배열로 가장 효과적인 구현 가능
----
-## ✔ Heap 종류
-### 1. 최대 힙
-#### 루드 토드에 최대값이 있는 형태의 힙을 뜻한다.
+---    
+## ✔ Heap 종류   
+### 1. 최대 힙   
+#### 루드 토드에 최대값이 있는 형태의 힙을 뜻한다.   
 ```java
 public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -35,7 +35,7 @@ public static void main(String[] args) throws IOException {
 ```   
 
 ### 2. 최소 힙
-#### 루드 토드에 최솟값이 있는 형태의 힙을 뜻한다.
+#### 루드 토드에 최솟값이 있는 형태의 힙을 뜻한다.    
 ```java
 public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -59,11 +59,12 @@ public static void main(String[] args) throws IOException {
         }
         System.out.println(sb.toString());
     }
-    ```   
-
-### 3. 절대 힙 -> 최대힙, 최소힙 특징 이용    
+```     
+    
+### 3. 절대 힙     
+####-> 최대힙, 최소힙 특징 이용       
 ```java
- public static void main(String[] args) throws IOException {
+public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
         PriorityQueue<Integer> ppq = new PriorityQueue<>(); // 양수 1, 2, 3 ....
@@ -95,17 +96,17 @@ public static void main(String[] args) throws IOException {
             }
         }
         System.out.println(sb.toString());
-    }
-```    
+    } 
+```       
 ![qu](https://user-images.githubusercontent.com/72757829/102923936-f8546200-44d3-11eb-87f9-50c241050f30.PNG)  
----
-## ✔ Heap 표현
-#### - 이진탐색 트리로 빈 노드가 없다.
-#### - 이 번호를 배열의 인덱스로 생각하면, 배열에 힙의 노드를 쉽게 저장 및 탐색 가능하다.
-#### - 1번 인덱스부터 사용한다.
-![zz](https://user-images.githubusercontent.com/72757829/102924428-e58e5d00-44d4-11eb-8f76-95723347cb28.PNG)
 ---   
-## ✔ 인덱스 구하기    
-#### 힙에는 인덱스 번호라는 특징이 존재하기 때문에 다음과 같은 방식으로 인덱스 위치를 구할 수 있다.   
-#### - 왼쪽 자식의 인덱스 : (부모의 인덱스) * 2    
-#### - 오른쪽 자식의 인덱스 : (부모의 인덱스) * 2 + 1    
+## ✔ Heap 표현   
+#### - 이진탐색 트리로 빈 노드가 없다.   
+#### - 이 번호를 배열의 인덱스로 생각하면, 배열에 힙의 노드를 쉽게 저장 및 탐색 가능하다.   
+#### - 1번 인덱스부터 사용한다.   
+![zz](https://user-images.githubusercontent.com/72757829/102924428-e58e5d00-44d4-11eb-8f76-95723347cb28.PNG)   
+---   
+## ✔ 인덱스 구하기     
+#### 힙에는 인덱스 번호라는 특징이 존재하기 때문에 다음과 같은 방식으로 인덱스 위치를 구할 수 있다.     
+#### - 왼쪽 자식의 인덱스 : (부모의 인덱스) * 2      
+#### - 오른쪽 자식의 인덱스 : (부모의 인덱스) * 2 + 1      
