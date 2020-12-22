@@ -60,8 +60,8 @@ public static void main(String[] args) throws IOException {
         System.out.println(sb.toString());
     }
     ```   
-![qu](https://user-images.githubusercontent.com/72757829/102923936-f8546200-44d3-11eb-87f9-50c241050f30.PNG)     
-### 3. 절대 힙 -> 최대힙, 최소힙 특징 이용   
+
+### 3. 절대 힙 -> 최대힙, 최소힙 특징 이용    
 ```java
  public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -96,7 +96,8 @@ public static void main(String[] args) throws IOException {
         }
         System.out.println(sb.toString());
     }
-```
+```    
+![qu](https://user-images.githubusercontent.com/72757829/102923936-f8546200-44d3-11eb-87f9-50c241050f30.PNG)  
 ---
 ## ✔ Heap 표현
 #### - 이진탐색 트리로 빈 노드가 없다.
