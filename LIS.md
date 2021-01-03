@@ -1,7 +1,7 @@
 # ▶ 최장 증가 수열(LIS, Longest Increasing Subsequence)
 
-## dp를 이용 -> 마지막 수가 x번째인 가장 긴 최장증가수열
-### 시간복잡도 : O(N^2)   
+### 1. dp를 이용 -> 마지막 수가 x번째인 가장 긴 최장증가수열
+#### 시간복잡도 : O(N^2)   
 ```java
 import java.util.*;
 
@@ -34,11 +34,11 @@ public class LIS {
 }
 ```   
 ---   
-## dp배열이용 ... -> 길이가 x인 최장증가수열의 마지막 수의 최소값   
-### 시간복잡도 : O(NlogN)      
-### 반드시 DP 배열이 가장 긴 증가하는 부분 순열의 순서에 맞지 않음   
-#### .... 이분탐색으로원소를 바꾸므로 차이가 생길 수 있음   
-### 전체길이를 알 수 있음!!! -> "전체길이 구하는 문제"에 사용할 알고리즘   
+### 2. dp배열이용 ... -> 길이가 x인 최장증가수열의 마지막 수의 최소값   
+#### 시간복잡도 : O(NlogN)      
+#### 반드시 DP 배열이 가장 긴 증가하는 부분 순열의 순서에 맞지 않음   
+##### .... 이분탐색으로원소를 바꾸므로 차이가 생길 수 있음   
+#### 전체길이를 알 수 있음!!! -> "전체길이 구하는 문제"에 사용할 알고리즘   
 ```java
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -80,5 +80,5 @@ public class BOJ12015 {
 ```   
 ---   
 ### 참고 사이트   
-https://dheldh77.tistory.com/entry/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%B5%9C%EC%9E%A5-%EC%A6%9D%EA%B0%80-%EC%88%98%EC%97%B4LIS-Longest-Increasing-Subsequence   
-https://codedoc.tistory.com/414    
+> 1. https://dheldh77.tistory.com/entry/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EC%B5%9C%EC%9E%A5-%EC%A6%9D%EA%B0%80-%EC%88%98%EC%97%B4LIS-Longest-Increasing-Subsequence   
+> 2. https://codedoc.tistory.com/414    
