@@ -62,7 +62,7 @@ public static void main(String[] args) throws IOException {
 ```     
     
 ### 3. 절대 힙     
-####-> 최대힙, 최소힙 특징 이용       
+#### -> 최대힙, 최소힙 특징 이용       
 ```java
 public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
