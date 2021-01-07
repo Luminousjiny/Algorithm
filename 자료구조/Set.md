@@ -41,9 +41,9 @@ isEmpty()
 HashSet<String> alphabetSet = new HashSet<>();
 Set<String> alphabetSet = new HashSet<>();
 ```   
-_ 둘 중 아무거나 사용 가능_   
-_ 종류 상관 없이 사용하려고 Set객체로 구현함_    
-_ ※ ArrayList도 List로 구현하는 것이 더 좋음_   
+_둘 중 아무거나 사용 가능_   
+_종류 상관 없이 사용하려고 Set객체로 구현함_    
+_※ ArrayList도 List로 구현하는 것이 더 좋음_   
 
 ### 2. 값을 가져오는 방법   
 ```java   
