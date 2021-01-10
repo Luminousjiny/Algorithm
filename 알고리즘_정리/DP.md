@@ -47,6 +47,38 @@ public int fibonacci(int n){
     - DP문제에서는 각 부분 문제들이 서로 영향을 미치며 부분문제가 중복됨   
     - 분할정복 문제에서는 동일 부분 문제가 반복적으로 계산되지 않음    
     
+---   
+#### ✔ 거스름돈에서 동전 최소 개수
+```java   
+// 동전단위 1, 4, 6 : 배수의 성질이 아님
+// 동전개수에는 제한이 없음
+public class MinCoinChangeTest {
+    static  int min;
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int money = sc.nextInt();
+        int[] D = new int[money+1]; // 각 금액의 최적 교환 동전 개수를 저장하는 동적테이블
+
+        // 각 금액의 최적 교환 동전개수 구함
+        // 1원시도 최적 개수 : D[i-1]+1
+        // 4원시도 최적 개수 : D[i-4]+1
+        // 6원시도 최적 개수 : D[i-6]+1
+        // 위 3가지 경우 중 가장 최적의 값을 저장
+
+        for (int i = 1; i <= money ; i++) {
+            min = Integer.MAX_VALUE; // 최소값으로 갱신할 변수
+            //3가지의 if문 모두 수행해보고 가장 최소값이 저장 -> else if가 아님!
+            if (i>=1 && D[i-1]+1<min) min = D[i-1]+1;
+            if (i>=4 && D[i-4]+1<min) min = D[i-4]+1;
+            if (i>=6 && D[i-6]+1<min) min = D[i-6]+1;
+
+            D[i] = min;
+        }
+        System.out.println(D[money]);
+
+    }
+}
+```   
 
 ---   
 [참고사이트] : https://do-rang.tistory.com/9   
