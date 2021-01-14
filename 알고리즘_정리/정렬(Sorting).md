@@ -135,12 +135,13 @@ static class StudentComparator implements Comparator<Student> { //사용예시
 	}
 ```    
 > __정렬 방법__  
-> - 데이터에 양수, 음수가 섞여 있지 않을 땨 사용 
-> return o1.no - o2.no;   
-> return -(o1.no - o2.no);   
-> - 데이터에 양수, 음수가 섞여있을 때 ... 언더플로우/오버플로우 방지 가능
-> ★ return Integer.compare(this.no, o.no);    
-> 마지막 방법으로 정렬해주는 것이 가장 안전!!! 
+> - 데이터에 양수, 음수가 섞여 있지 않을 땨 사용       
+> return o1.no - o2.no;        
+> return -(o1.no - o2.no);          
+
+> - 데이터에 양수, 음수가 섞여있을 때 ... 언더플로우/오버플로우 방지 가능     
+> ★ return Integer.compare(this.no, o.no);         
+> 마지막 방법으로 정렬해주는 것이 가장 안전!!!      
 ---   
 [참고자료] https://codechacha.com/ko/java-sorting-array/   
 
