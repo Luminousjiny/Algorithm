@@ -135,7 +135,7 @@ static class StudentComparator implements Comparator<Student> { //사용예시
 	}
 ```    
 > __정렬 방법__  
-> - 데이터에 양수, 음수가 섞여 있지 않을 땨 사용       
+> - 데이터에 양수, 음수가 섞여 있지 않을  사용       
 > return o1.no - o2.no;        
 > return -(o1.no - o2.no);          
 
