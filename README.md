@@ -7,5 +7,6 @@
 
 ### 📅 알고리즘 재정비 Plan 
 ▫ ⬜ 2021.07 : Programers level1 완료       
-▫ ⬜ 2021.08 : Programers level2 완료       
+▫ ⬜ 2021.08 : Programers level2 완료     
+▫ ⬜ 2021.09 : programers level2 및 삼성기출문제 풀이   
 
