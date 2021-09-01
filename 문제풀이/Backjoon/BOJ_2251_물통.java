@@ -1,5 +1,3 @@
-package test;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -31,7 +29,11 @@ public class BOJ_2251_물통 {
             if(now.x+now.y >= b && !visit[now.x-(b- now.y)][b][now.z]){ // a와 b 물통에 있는 물의 합이 b 크기보다 크면
                 qu.add(new Bucket(now.x-(b- now.y), b, now.z)); // b를 꽉 채우고 남는게 있다면 a로
                 visit[now.x-(b- now.y)][b][now.z] = true; // 방문체크
+<<<<<<< HEAD
                 if(now.x-(b- now.y) == 0) ans.add(now.z);
+=======
+                ans.add(now.z);
+>>>>>>> 8932361be9e82084f1b7b0557f5203a44ed45bed
             }else if(now.x+now.y < b && !visit[0][now.y+ now.x][now.z]){ // a와 b 물통에 있는 물의 합이 b 크기보다 작으면
                 qu.add(new Bucket(0, now.y+ now.x, now.z)); // a+b 물의 합을 b에 모두 넣기
                 visit[0][now.y+ now.x][now.z] = true; // 방문체크
@@ -42,6 +44,7 @@ public class BOJ_2251_물통 {
             if(now.x+now.z >= c && !visit[now.x-(c- now.z)][now.y][c]){
                 qu.add(new Bucket(now.x-(b- now.y), now.y, c));
                 visit[now.x-(c- now.z)][now.y][c] = true;
+<<<<<<< HEAD
                 if(now.x-(c- now.z)==0) ans.add(c);
             }else if(now.x+now.z < c && !visit[0][now.y][now.x+now.z]){
                 qu.add(new Bucket(0, now.y, now.x+now.z));
@@ -60,36 +63,78 @@ public class BOJ_2251_물통 {
                 if(now.x+now.y == 0) ans.add(now.z);
             }
 
+=======
+                ans.add(c);
+            }else if(now.x+now.z < c && !visit[0][now.y][now.x+now.z]){
+                qu.add(new Bucket(0, now.y, now.x+now.z));
+                visit[0][now.z][now.x+now.z] = true;
+                if(now.x + now.z != 0) ans.add(now.x+now.z);
+            }
+
+            // b-> a
+            if(now.y+now.x >= a && !visit[a][now.y-(a-now.x)][now.z]){
+                qu.add(new Bucket(a, now.y-(a-now.x), now.z));
+                visit[a][now.y-(a-now.x)][now.z] = true;
+                if(now.z != 0) ans.add(now.z);
+            }else if(now.y+now.x < a && !visit[now.x+now.y][0][now.z]){
+                qu.add(new Bucket(now.y+now.x, 0, now.z));
+                visit[now.x+now.y][0][now.z] = true;
+                if(now.z != 0) ans.add(now.z);
+            }
+
+>>>>>>> 8932361be9e82084f1b7b0557f5203a44ed45bed
             // b-> c
             if(now.y+now.z >= c && !visit[now.x][now.y-(c-now.z)][c]){
                 qu.add(new Bucket(now.x, now.y-(c-now.z), c));
                 visit[now.x][now.y-(c-now.z)][c] = true;
+<<<<<<< HEAD
                 if(now.x == 0) ans.add(c);
             }else if(now.y+now.z < c && !visit[now.x][0][now.z+now.y]){
                 qu.add(new Bucket(now.x, 0, now.y+now.z));
                 visit[now.x][0][now.z+now.y] = true;
                 if(now.x == 0) ans.add(now.z+now.y);
+=======
+                ans.add(c);
+            }else if(now.y+now.z < c && !visit[now.x][0][now.z+now.y]){
+                qu.add(new Bucket(now.x, 0, now.y+now.z));
+                visit[now.x][0][now.z+now.y] = true;
+                if(now.z+now.y != 0) ans.add(now.z+now.y);
+>>>>>>> 8932361be9e82084f1b7b0557f5203a44ed45bed
             }
             // c-> a
             if(now.z+now.x >= a && !visit[a][now.y][now.z-(a-now.x)]){
                 qu.add(new Bucket(a, now.y, now.z-(a-now.x)));
                 visit[a][now.y][now.z-(a-now.x)] = true;
+<<<<<<< HEAD
                 if(a==0) ans.add(now.z-(a-now.x));
             }else if(now.z+now.x < a && !visit[now.x+now.z][now.y][0]){
                 qu.add(new Bucket(now.z+now.x, now.y, 0));
                 visit[now.x+now.z][now.y][0] = true;
                 if(now.x+now.z == 0) ans.add(0);
+=======
+                if(now.z-(a-now.x) != 0) ans.add(now.z-(a-now.x));
+            }else if(now.z+now.x < a && !visit[now.x+now.z][now.y][0]){
+                qu.add(new Bucket(now.z+now.x, now.y, 0));
+                visit[now.x+now.z][now.y][0] = true;
+>>>>>>> 8932361be9e82084f1b7b0557f5203a44ed45bed
             }
 
             // c-> b
             if(now.z+now.y >= b && !visit[now.x][b][now.z-(b-now.y)]){
                 qu.add(new Bucket(now.x, b, now.z-(b-now.y)));
                 visit[now.x][b][now.z-(b-now.y)] = true;
+<<<<<<< HEAD
                 if(now.x == 0) ans.add(now.z-(b-now.y));
             }else if(now.z+now.y < b && !visit[now.x][now.y+now.z][0]){
                 qu.add(new Bucket(now.x, now.y+now.z, 0));
                 visit[now.x][now.y+now.z][0] = true;
                 if(now.x == 0) ans.add(0);
+=======
+                if(now.z-(b-now.y) != 0) ans.add(now.z-(b-now.y));
+            }else if(now.z+now.y < b && !visit[now.x][now.y+now.z][0]){
+                qu.add(new Bucket(now.x, now.y+now.z, 0));
+                visit[now.x][now.y+now.z][0] = true;
+>>>>>>> 8932361be9e82084f1b7b0557f5203a44ed45bed
             }
         }
         for (int x:ans) {
