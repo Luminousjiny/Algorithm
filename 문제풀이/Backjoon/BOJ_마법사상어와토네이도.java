@@ -41,50 +41,46 @@ public class BOJ_20057_마법사상어와토네이도 {
             for (int j = 0; j < move; j++) {
                 int nx = sx + di[dir];
                 int ny = sy + dj[dir];
-                if(nx<0 || nx>=N || ny<0 || ny>=N){
-                    ANS += map[sx][sy]; // 덩어리로 나간거 더해주기
-                }else{  // 이동한 자리에서 a와 %로 퍼진 부분에 모래 더해주기, 이동한 자리는 0으로 세팅
-                    if(dir == 0){
-                        for (int k = 0; k < 5; k++) {
-                            for (int l = 0; l < 4; l++) {
-                                if(spread1[k][l] != 0){
-                                    int plus = (int) (map[sx][sy] * spread1[k][l] * 0.01);
-                                    map[k+sx-2][l+sy-3] += plus; // spread1[k][l] 숫자의 비율 더해줌
-                                }
-                            }
+                // 이동한 자리에서 a와 %로 퍼진 부분에 모래 더해주기, 이동한 자리는 0으로 세팅
+                if(dir == 0){
+                    for (int k = 0; k < 5; k++) {
+                        for (int l = 0; l < 4; l++) {
+                            if(spread1[k][l] == 0 ) continue;
+                            int plus = (int) (map[nx][ny] * spread1[k][l] * 0.01);
+                            if(k+sx-2 < 0 || k+sx-2 >= N || l+sy-3 < 0 || l+sy-3 >= N) ANS += plus;
+                            else map[k+sx-2][l+sy-3] += plus; // spread1[k][l] 숫자의 비율 더해줌
                         }
-                        map[nx][ny] = 0; // 이동한 자리는 0 ... 토네이도로 다 뿌려짐
-                    }else if(dir == 1){
-                        for (int k = 0; k < 4; k++) {
-                            for (int l = 0; l < 5; l++) {
-                                if(spread2[k][l] != 0){
-                                    int plus = (int) (map[sx][sy] * spread2[k][l] * 0.01);
-                                    map[k+sx][l+sy-2] += plus; // spread2[k][l] 숫자의 비율 더해줌
-                                }
-                            }
-                        }
-                        map[nx][ny] = 0; // 이동한 자리는 0 ... 토네이도로 다 뿌려짐
-                    }else if(dir == 2){
-                        for (int k = 0; k < 5; k++) {
-                            for (int l = 0; l < 4; l++) {
-                                if(spread3[k][l] != 0){
-                                    int plus = (int) (map[sx][sy] * spread3[k][l] * 0.01);
-                                    map[k+sx-2][l+sy] += plus; // spread3[k][l] 숫자의 비율 더해줌
-                                }
-                            }
-                        }
-                        map[nx][ny] = 0; // 이동한 자리는 0 ... 토네이도로 다 뿌려짐
-                    }else if(dir == 3){
-                        for (int k = 0; k < 4; k++) {
-                            for (int l = 0; l < 5; l++) {
-                                if(spread4[k][l] != 0){
-                                    int plus = (int) (map[sx][sy] * spread4[k][l] * 0.01);
-                                    map[k+sx-3][l+sy-2] += plus; // spread4[k][l] 숫자의 비율 더해줌
-                                }
-                            }
-                        }
-                        map[nx][ny] = 0; // 이동한 자리는 0 ... 토네이도로 다 뿌려짐
                     }
+                    map[nx][ny] = 0; // 이동한 자리는 0 ... 토네이도로 다 뿌려짐
+                }else if(dir == 1){
+                    for (int k = 0; k < 4; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            if(spread2[k][l] == 0 ) continue;
+                            int plus = (int) (map[nx][ny] * spread2[k][l] * 0.01);
+                            if(k+sx < 0 || k+sx >= N || l+sy-2 < 0 || l+sy-2 >= N) ANS += plus;
+                            else map[k+sx][l+sy-2] += plus; // spread2[k][l] 숫자의 비율 더해줌
+                        }
+                    }
+                    map[nx][ny] = 0; // 이동한 자리는 0 ... 토네이도로 다 뿌려짐
+                }else if(dir == 2){
+                    for (int k = 0; k < 5; k++) {
+                        for (int l = 0; l < 4; l++) {
+                            if(spread3[k][l] == 0 ) continue;
+                            int plus = (int) (map[nx][ny] * spread3[k][l] * 0.01);
+                            if(k+sx-2 < 0 || k+sx-2 >= N || l+sy < 0 || l+sy >= N) ANS += plus;
+                            else map[k+sx-2][l+sy] += plus; // spread3[k][l] 숫자의 비율 더해줌
+                        }
+                    }
+                }else if(dir == 3){
+                    for (int k = 0; k < 4; k++) {
+                        for (int l = 0; l < 5; l++) {
+                            if(spread4[k][l] == 0 ) continue;
+                            int plus = (int) (map[nx][ny] * spread4[k][l] * 0.01);
+                            if(k+sx-3 < 0 || k+sx-3 >= N || l+sy-2 < 0 || l+sy-2 >= N) ANS += plus;
+                            else map[k+sx-3][l+sy-2] += plus; // spread4[k][l] 숫자의 비율 더해줌
+                        }
+                    }
+                    map[nx][ny] = 0; // 이동한 자리는 0 ... 토네이도로 다 뿌려짐
                 }
                 sx = nx; sy = ny; // 시작점 바꾸기
             }
