@@ -32,34 +32,23 @@ public class BOJ_20056_마법사상어와파이어볼 {
             map[r-1][c-1]++;
             ballList.add(new Ball(r-1, c-1, m, s, d));
         }
-        System.out.println("초기 상태");
-        print();
 
         for (int i = 0; i < K; i++) {
-            for (int size = 0; size < ballList.size(); size++) {
+            int s = ballList.size();
+            for (int size = 0; size < s; size++) {
                 Ball now = ballList.poll();
                 int sr = now.r; int sc = now.c;
                 map[sr][sc]--;
-                for (int j = 0; j < now.s; j++) {
-                    int nr = sr + di[now.d];
-                    int nc = sc + dj[now.d];
-                    if(nr >= N ) nr = 0;
-                    if(nr < 0 ) nr = N-1;
-                    if(nc >= N ) nc = 0;
-                    if(nc < 0 ) nc = N-1;
-                    sr = nr; sc = nc;
-                }
-                map[sr][sc]++;
-                ballList.add(new Ball(sr, sc, now.m, now.s, now.d));
-                System.out.println("이동 : "+sr +" " + sc + " " + now.m +" "+ now.s + " " + now.d);
+                int nr = sr + di[now.d] * now.s % N;
+                int nc = sc + dj[now.d] * now.s % N;
+                if(nr >= N ) nr -= N;
+                if(nr < 0 ) nr += N;
+                if(nc >= N ) nc -= N;
+                if(nc < 0 ) nc += N;
+                map[nr][nc]++;
+                ballList.add(new Ball(nr, nc, now.m, now.s, now.d));
             }
-
-            for (Ball b:ballList) {
-                System.out.println(b.r+", " + b.c+ " "+b.m);
-            }
-
-            System.out.println("이동 후");
-            print();
+            // 이동하고 2개이상이면 같은 칸에 4개로 만들어주기
             for (int j = 0; j < N; j++) {
                 for (int k = 0; k < N; k++) {
                     if(map[j][k] >= 2){
@@ -69,7 +58,6 @@ public class BOJ_20056_마법사상어와파이어볼 {
                         int size = ballList.size();
                         for (int l = 0; l < size; l++) {
                             Ball ball = ballList.poll();
-                            System.out.println("ball 출력 : "+ ball.r + ", "+ ball.c+" => "+ ball.m);
                             if(ball.r == j && ball.c == k){
                                 mSum += ball.m;
                                 sSum += ball.s;
@@ -78,48 +66,29 @@ public class BOJ_20056_마법사상어와파이어볼 {
                             }else{
                                 ballList.add(ball);
                             }
-                            System.out.println(">>>>>>>>>들어오나");
                         }
-                        System.out.println("mSum : "+mSum);
-                        System.out.println("sSum : "+sSum);
-                        map[j][k] = 0;
+                        map[j][k] = 4; // 4개로 나눔
                         if(dirL == 0 || dirR == 0){
                             for (int dir = 0; dir < 8; dir+=2) {
-                                int nx = j + di[dir];
-                                int ny = k + dj[dir];
-                                if(nx >= N ) nx = 0;
-                                if(nx < 0 ) nx = N-1;
-                                if(ny >= N ) ny = 0;
-                                if(ny < 0 ) ny = N-1;
-                                map[nx][ny]++;
-                                ballList.add(new Ball(nx, ny, mSum/5, sSum/cnt,dir));
+                                if(mSum/5 != 0) ballList.add(new Ball(j, k, mSum/5, sSum/cnt,dir));
                             }
                         }else{
                             for (int dir = 1; dir < 8; dir+=2) {
-                                int nx = j + di[dir];
-                                int ny = k + dj[dir];
-                                if(nx >= N ) nx = 0;
-                                if(nx < 0 ) nx = N-1;
-                                if(ny >= N ) ny = 0;
-                                if(ny < 0 ) ny = N-1;
-                                map[nx][ny]++;
-                                ballList.add(new Ball(nx, ny, mSum/5, sSum/cnt,dir));
+                                if(mSum/5 != 0) ballList.add(new Ball(j, k, mSum/5, sSum/cnt,dir));
                             }
                         }
                     }
                 }
             }
-            System.out.println("2개 만날경우 퍼트리기");
-            print();
         }
 
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 if(map[i][j] > 0){
-                    for (int k = 0; k < ballList.size(); k++) {
+                    int s = ballList.size();
+                    for (int k = 0; k < s; k++) {
                         Ball ball = ballList.poll();
                         if(ball.r == i && ball.c == j){
-                            System.out.println(ball.r + ", "+ ball.c+" => "+ ball.m);
                             ANS += ball.m;
                         }else ballList.add(ball);
                     }
