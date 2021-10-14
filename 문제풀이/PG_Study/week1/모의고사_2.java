@@ -13,18 +13,18 @@ public class 모의고사_2 {
             System.out.print(x+" ");
         }
     }
-    public static ArrayList<Integer> solution(int[] answers) {
+    public ArrayList<Integer> solution(int[] answers) {
         ArrayList<Integer> answer = new ArrayList<>();
         int[][] check = {{1,2,3,4,5}, {2,1,2,3,2,4,2,5}, {3,3,1,1,2,2,4,4,5,5}}; // 5, 8, 10
-        int[][] memory = new int[3][2]; // 번호, cnt
+        int[][] memory = new int[check.length][2]; // 번호, cnt
 
-        for (int i = 0; i < 3; i++) { // 3명 중 하나 선택
+        for (int i = 0; i < check.length; i++) {
             int cnt = 0;
             int idx = 0;
             for (int j = 0; j < answers.length; j++) { // 정답입력 배열 돌면서 내가 쓴 정답 배열 돌기
                 if(answers[j] == check[i][idx]) cnt++;
                 idx++;
-                if(i==0 && idx==5 || i==1 && idx==8 || i==2 && idx==10) idx = 0;
+                if(idx==check[i].length) idx = 0;
             }
             memory[i][0] = i+1; // 번호
             memory[i][1] = cnt; // 개수
