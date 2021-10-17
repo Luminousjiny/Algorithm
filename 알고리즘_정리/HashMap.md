@@ -34,9 +34,9 @@ HashMap<String, Integer> map = new HashMap<>(); //<키 자료형, 값 자료형>
 ### ✔ put() : key, value 저장
 ```java
     map.put("A", 100);
-		map.put("B", 101);
-		map.put("C", 102);
-		map.put("C", 103); //중복된 key값이면 업데이트됨.
+    map.put("B", 101);
+    map.put("C", 102);
+    map.put("C", 103); //중복된 key값이면 업데이트됨.
 ```
 
 - ex) 한 줄로 표현하기
@@ -54,9 +54,9 @@ HashMap<String, Integer> map = new HashMap<>(); //<키 자료형, 값 자료형>
 - 출력
 ```java
     System.out.println(map);
-		System.out.println(map.get("A"));
-		System.out.println(map.get("B"));
-		System.out.println(map.get("C"));
+    System.out.println(map.get("A"));
+    System.out.println(map.get("B"));
+    System.out.println(map.get("C"));
 ```
 - 결과
 ```
