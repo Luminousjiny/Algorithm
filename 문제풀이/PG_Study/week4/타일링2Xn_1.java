@@ -10,6 +10,7 @@ package study_week4;
 
 public class 타일링2Xn_1 {
     public int solution(int n) {
+        // 1. dp 이용
         int[] dp = new int[n+1];
 
         for (int i = 1; i <= n; i++) {
@@ -17,5 +18,17 @@ public class 타일링2Xn_1 {
             else dp[i] = (dp[i-2] + dp[i-1])%1000000007;
         }
         return dp[n];
+
+        // 2. -1, -2 결과 기억 방법
+        /*
+            int before1 = 1;
+            int before2 = 2;
+            for (int i = 3; i <= n; i++) {
+                int now = (before1+before2)%1000000007;
+                before1 = before2;
+                before2 = now;
+            }
+            return before2;
+        * */
     }
 }
