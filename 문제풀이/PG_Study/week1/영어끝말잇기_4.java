@@ -9,7 +9,6 @@ public class 영어끝말잇기_4 {
         String before = words[0];
         Map<String, Integer> map = new HashMap<>();
         map.put(before, 1);
-        loop :
         for(int i=1; i<words.length; i++){
             if(id == n) id=0;
             String now = words[i];
