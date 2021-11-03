@@ -55,3 +55,14 @@ static class StudentComparator implements Comparator<Student> {
 ```    
 
 #### ✔ CompareTo와 Compare 둘 다 return 값의 의미는 같음
+
+
+### ◾ string 문자열 길이로 정렬
+```java
+Arrays.sort(arr, new Comparator<String>(){
+	public int compare(String s1, String s2){
+		return Integer.compare(s1.length(), s2.length());//문자열 길이순 정렬
+	}
+});
+```
+

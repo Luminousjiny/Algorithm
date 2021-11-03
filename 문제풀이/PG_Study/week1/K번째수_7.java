@@ -9,10 +9,7 @@ public class K번째수_7 {
             int start = commands[n][0];
             int end = commands[n][1];
             int k = commands[n][2];
-            int[] cut = new int[end-start+1];
-            for(int i=0; i<cut.length; i++){
-                cut[i] = array[i+start-1];
-            }
+            int[] cut = Arrays.copyOfRange(array, start-1, end);
             Arrays.sort(cut);
             answer[n] = cut[k-1];
         }
